@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Reservation</title>
+</head>
+<body>
+	The details of your weekend get away at an
+	<span th:inline="text"> [[${level}]] </span>
+	price to
+	<span th:inline="text"> [[${cityName}]] </span>
+	are being emailed to you at: 
+	<span th:inline="text"> [[${email}]] </span>
+	.
+</body>
+</html>

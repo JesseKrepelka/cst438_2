@@ -5,7 +5,7 @@
 	<title>City</title>
 </head>
 	<body>
-		<h1 th:inline="text">[[${cityInfo.cityName}]]</h1>
+		<h1 th:inline="text" name="city">[[${cityInfo.cityName}]]</h1>
 		ID:   <span th:inline="text">[[${cityInfo.id}]]</span> <br />
 		Country Code:  <span th:inline="text">[[${cityInfo.countryCode}]]</span> <br />
 		Country Name: <span th:inline="text">[[${cityInfo.countryName}]]</span> <br />
@@ -13,5 +13,21 @@
 		Population:<span th:inline="text">[[${cityInfo.population}]]</span> <br />
 		Local Weather:<span th:inline="text">[[${cityInfo.timeAndTemp.temp}]]</span> <br />
 		Local Time:<span th:inline="text">[[${cityInfo.timeAndTemp.time}]]</span> <br />
+		<br />
+		How much are you looking to spend?
+		<form action="#" th:action="@{/cities/reservation}" method="post">
+			<input type="radio" id="luxury" name="level" value="exorbitant"> 
+			<label for="rd_top">Luxury</label> <br />
+			<input type="radio" id="affordable" name="level" value="affordable"> 
+			<label for="rd_mid">Affordable</label> <br />
+			<input type="radio" id="cheap" name="level" value="unscrupulous">
+			<label for="rd_bot">Cheap</label>  <br />
+			<br />
+			<label for="email">Email: </label>
+			<input type="text" id="email" name="email"> <br />
+			<br />
+			<input type="hidden" id="city" name="city" th:value="${cityInfo.cityName}">
+			<input type="submit" value="Submit">
+		</form>
 	</body>
 </html>
